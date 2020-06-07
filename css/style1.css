@@ -1,0 +1,34 @@
+.text-left-center{
+    margin-left: 130px;
+}
+
+.banhangcs{
+    font-size: 20px;
+    margin-top: 100px;
+    padding-left: 220px;
+    padding-right: 100px;
+    text-align: justify;
+    text-indent: 50px;
+}
+.banhangcs h2{
+    font-size: 25px;
+
+}
+.banhangcs h2 p{
+    color: red;
+    text-shadow: 2px 2px 5px red;
+}
+.hinhnen{
+    min-height: min-content;
+    background-image: linear-gradient(to right top,rgba(0, 255, 234, 0.8) 55%, rgba(194, 216, 135, 0.85)), url("../img/H1.jpg")
+}
+
+.float-right{
+    float: right;
+}
+
+.bgrcl{
+    background-image: url(../img/anh-binh-dinh.jpg);
+    min-width:1920 ;
+    min-height: 1080;
+}

@@ -1,0 +1,70 @@
+.salebox{
+    overflow-x: scroll;
+    position: relative;
+    top: 150px;
+    left: 25px;
+    height: 200px;
+    width: 80%; 
+    border: 1px solid rgba(228, 156, 156, 0.973);
+    background-color: rgb(255, 255, 255);
+}
+.shirt{
+    position: relative;
+    background-color: rgb(179, 179, 179);;
+    height: 160px;
+    width: 120px;
+    top:12px;
+    float: left;
+    margin: 4px;
+}
+.pic{
+    position: relative;
+    height: 140px;
+    width: 110px;
+    float: left;
+}
+.infpic{
+    border-radius: 5px;
+    position: relative;
+    top:1px;
+    height: 18px;
+    width: 90px;
+    float: left;
+    background-color: azure;
+    border: 1px solid pink;
+    left: 15px;
+}
+.pic img{
+    position: relative;
+    left: 5px;
+    height: 140px;
+    width: 110px;
+}
+.infpic img{
+    position: relative;
+    top: -3px;
+    height: 15px;
+    width: 90px;
+}
+#takem{
+    position: relative;
+    top: 140px;
+    left: 25px;
+}
+#review{
+    position: relative;
+    top:180px;
+    left: 25px;
+    border:1px solid pink;
+}
+#txtreview{
+    position: relative;
+    top: 160px;
+    left: 25px;
+}
+#search{
+    position: relative;
+    top: 130px;
+    left: 100px;
+
+}
