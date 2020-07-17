@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+<?php
+    global $conn;
 
+    function connect_db(){
+        global $conn;
+
+        if(!$conn){
+            $conn=mysqli_connect('localhost','root','','qlao') or die ('Can not connect to database');
+            mysqli_set_charset($conn,'utf8');
+        }
+    }
+    function disconnect_db(){
+        global $conn;
+        if($conn){
+            mysqli_close($conn);
+        }
+    }
+    function get_all_product(){
+        global $conn;
+        connect_db();
+        $sql="select * from tb_sp";
+        $query= mysqli_query($conn,$sql);
+        $result = array();
+        if ($query){
+            while ($row = mysqli_fetch_assoc($query)){
+                $result[]=$row;
+            }
+        }
+        return $result;
+    }
+    $sp = get_all_product();
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -404,8 +435,18 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-primary text-center">
-                                                <h1 class="font-light text-white">2,064</h1>
-                                                <h6 class="text-white">Total Tickets</h6>
+                                                <h1 class="font-light text-white">
+                                                <?php
+                                                    $d=0;
+                                                  foreach ($sp as $item){
+                                                    $d = $d +1;
+                                                     } 
+                                                echo $d;
+                                                ?>
+                                                
+                                                
+                                                </h1>
+                                                <h6 class="text-white">Total Products</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -442,159 +483,29 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Status</th>
+                                            <th>Status</th>
                                                 <th>Title</th>
                                                 <th>ID</th>
                                                 <th>Product</th>
-                                                <th>Created by</th>
-                                                <th>Date</th>
-                                                <th>Agent</th>
+                                                <th>Edit Information</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <?php foreach ($sp as $item){?>
                                             <tr>
-                                                <td><span class="badge badge-light-warning">In Progress</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">Elegant
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">276377</a></td>
-                                                <td>Elegant Admin</td>
-                                                <td>Eric Pratt</td>
-                                                <td>2018/05/01</td>
-                                                <td>Fazz</td>
+                                                <td><?php echo $item['sp_id']; ?></td>
+                                                
+  
+                                                <td><?php echo $item['sp_theloai']; ?></td>
+                                                <td><?php echo $item['sp_tensanpham']; ?></td>
+                                                <td><?php echo $item['sp_gia']; ?></td>
+                                                <td>
+                                                    
+                                                    <button  class="form-control custom-shadow custom-radius border-1">More</button>
+                                                    <button class="form-control custom-shadow custom-radius border-1">Delete</button>
+
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-danger">Closed</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">AdminX
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1234251</a></td>
-                                                <td>AdminX Admin</td>
-                                                <td>Nirav Joshi</td>
-                                                <td>2018/05/11</td>
-                                                <td>Steve</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-success">Opened</span></td>
-                                                <td><a href="javascript:void(0)"
-                                                        class="font-weight-medium link">Admin-Pro
-                                                        Theme Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1020345</a></td>
-                                                <td>Admin-Pro</td>
-                                                <td>Vishal Bhatt</td>
-                                                <td>2018/04/01</td>
-                                                <td>John</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-warning">In Progress</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">Elegant
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">7810203</a></td>
-                                                <td>Elegant Admin</td>
-                                                <td>Eric Pratt</td>
-                                                <td>2018/01/01</td>
-                                                <td>Fazz</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-warning">In Progress</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">AdminX
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">2103450</a></td>
-                                                <td>AdminX Admin</td>
-                                                <td>Nirav Joshi</td>
-                                                <td>2018/05/01</td>
-                                                <td>John</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-warning">In Progress</span></td>
-                                                <td><a href="javascript:void(0)"
-                                                        class="font-weight-medium link">Admin-Pro
-                                                        Theme Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">2140530</a></td>
-                                                <td>Admin-Pro</td>
-                                                <td>Vishal Bhatt</td>
-                                                <td>2018/07/01</td>
-                                                <td>Steve</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-success">Opened</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">Elegant
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">4500123</a></td>
-                                                <td>Elegant Admin</td>
-                                                <td>Eric Pratt</td>
-                                                <td>2018/05/10</td>
-                                                <td>Fazz</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-danger">Closed</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">Elegant
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1230450</a></td>
-                                                <td>Elegant Admin</td>
-                                                <td>Eric Pratt</td>
-                                                <td>2018/05/14</td>
-                                                <td>John</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-danger">Closed</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">AdminX
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1240503</a></td>
-                                                <td>AdminX Admin</td>
-                                                <td>Nirav Joshi</td>
-                                                <td>2018/02/01</td>
-                                                <td>Steve</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-success">Opened</span></td>
-                                                <td><a href="javascript:void(0)"
-                                                        class="font-weight-medium link">Admin-Pro
-                                                        Theme Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1250304</a></td>
-                                                <td>Admin-Pro</td>
-                                                <td>Vishal Bhatt</td>
-                                                <td>2018/05/21</td>
-                                                <td>Fazz</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-success">Opened</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">Elegant
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1470250</a></td>
-                                                <td>Elegant Admin</td>
-                                                <td>Eric Pratt</td>
-                                                <td>2018/05/11</td>
-                                                <td>John</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-danger">Closed</span></td>
-                                                <td><a href="javascript:void(0)"
-                                                        class="font-weight-medium link">Admin-Pro
-                                                        Theme Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1450023</a></td>
-                                                <td>Admin-Pro</td>
-                                                <td>Vishal Bhatt</td>
-                                                <td>2018/05/13</td>
-                                                <td>Steve</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="badge badge-light-warning">In Progress</span></td>
-                                                <td><a href="javascript:void(0)" class="font-weight-medium link">AdminX
-                                                        Theme
-                                                        Side Menu Open OnClick</a></td>
-                                                <td><a href="javascript:void(0)" class="font-bold link">1420530</a></td>
-                                                <td>AdminX Admin</td>
-                                                <td>Nirav Joshi</td>
-                                                <td>2018/10/01</td>
-                                                <td>Fazz</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -602,9 +513,7 @@
                                                 <th>Title</th>
                                                 <th>ID</th>
                                                 <th>Product</th>
-                                                <th>Created by</th>
-                                                <th>Date</th>
-                                                <th>Agent</th>
+                                                <th>Edit Information</th>
                                             </tr>
                                         </tfoot>
                                     </table>

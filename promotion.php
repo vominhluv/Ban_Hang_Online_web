@@ -90,21 +90,21 @@
  <div class="salebox">
  <?php
  include_once('connet.php');
- $sql= "select pic,kind,review from tb_sp";
+ $sql= "select sp_hinhanh,sp_theloai,sp_tensanpham from tb_sp";
  $result= mysqli_query($conn,$sql);
  if(mysqli_num_rows($result)>0) {
      while ($row=mysqli_fetch_assoc($result)) {
-         $pic=$row['pic'];
-         $kind=$row['kind'];
-         $review=$row['review'];
+         $sp_hinhanh=$row['sp_hinhanh'];
+         $sp_theloai=$row['sp_theloai'];
+         $sp_tensanpham=$row['sp_tensanpham'];
          $shirt = <<<EOD
-       <!-- begin first shirt -->
+     
        <div id="shirt">
-        <div class="pic">
-          <img src=$pic> 
+        <div class="sp_hinhanh">
+          <img src=$sp_hinhanh> 
         </div>
         <div class="infpic">
-        <div>$kind</div>
+        <div>$sp_theloai</div>
           <img src="img/star.png" alt="">
         </div>
         </div>
