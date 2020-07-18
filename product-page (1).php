@@ -100,13 +100,26 @@
   <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
 
-      <!--Grid row-->
+      <?php
+       include_once ('connet.php');
+       $id=$_GET['id'];
+       $sql = "Select tb_chitiet.sp_tensanpham,tb_sp.sp_id,tb_sp.sp_hinhanh,tb_chitiet.sp_mota,tb_chitiet.sp_dongia from tb_sp,tb_chitiet Where tb_sp.sp_id=$id and tb_sp.sp_id=tb_chitiet.sp_id";
+       $resut = mysqli_query($conn, $sql);
+       if (mysqli_num_rows($resut) > 0) {
+           while ($row = mysqli_fetch_assoc($resut)) {
+            $prices = $row['sp_dongia'];
+            $name = $row['sp_tensanpham'];
+            $id=$row['sp_id'];
+            $mota=$row['sp_mota'];
+            $hinhanh=$row['sp_hinhanh'];
+            
+      $cmm=<<<EOD
       <div class="row wow fadeIn">
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src="./img/aosomi1.jpg" class="img-fluid" alt="">
+          <img src=$hinhanh class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -116,7 +129,7 @@
 
           <!--Content-->
           <div class="p-4">
-
+          <p class="lead font-weight-bold">$name</p>
             <div class="mb-3">
               <a href="">
                 <span class="badge purple mr-1">Độc</span>
@@ -130,18 +143,13 @@
             </div>
 
             <p class="lead">
-              <span class="mr-1">
-                <del>9.999.999.đ</del>
-              </span>
-              <span>4.999.999.đ</span>
+              
+              <span>$prices.đ</span>
             </p>
 
             <p class="lead font-weight-bold">Mô Tả</p>
 
-            <p>Kiểu dáng hiện đại, gọn gàng với viền màn hình mỏng.
-              Độ phân giải HD hiển thị hình ảnh chi tiết cùng màu sắc rực rỡ, sống động đến từ công nghệ Brilliantly Clear Enhancer.
-              Âm thanh vòm lôi cuốn, hiệu ứng nổi bật với công nghệ Dolby Digital.
-              Xem truyền hình kỹ thuật số chất lượng từ đầu thu DVB-T2.</p>
+            <p>$mota</p>
 
             <form class="d-flex justify-content-left">
               <!-- Default input -->
@@ -159,57 +167,18 @@
         <!--Grid column-->
 
       </div>
+EOD;
+           }
+           echo $cmm;
+          }
+          else echo "cmm";
+      ?>
       <!--Grid row-->
 
       <hr>
 
-      <!--Grid row-->
-      <div class="row d-flex justify-content-center wow fadeIn">
+     
 
-        <!--Grid column-->
-        <div class="col-md-6 text-center">
-
-          <h4 class="my-4 h4">Thông Tin Thêm</h4>
-
-          <p> Tặng 2 tháng tiền điện trị giá 200,000đ(đã trừ vào giá) Xem chi tiết
-             Mua điện thoại với giá giảm 10% (Loa mua kèm không áp dụng khuyến mãi khác)
-            Tặng 2 suất mua Laptop đời mới giảm 40% (không áp dụng thêm khuyến mãi khác) .</p>
-
-        </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
-
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
 
     </div>
   </main>
