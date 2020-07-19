@@ -494,7 +494,7 @@ session_start();
                                             $name=$row["sp_tensanpham"];
                                             $prices=$row["sp_gia"];
                                             $picture=$row['sp_hinhanh'];
-                                            $fixx = <<<EOD
+                                            $fix = <<<EOD
                                         <form action="xulyfixSP.php" method="GET">
                                         <th></th>
                                             <th><input type="text" name="id" value="$id"/></th>
@@ -504,7 +504,7 @@ session_start();
                                             <th><input type="text" name="picture" value="$picture" /></th>
                                             <th><button type="submit">Xác Nhận</button></th>
                                         </form>
-EOD; echo $fixx;
+EOD; echo $fix;
                                         }
                                         ?>
                                     </tr>
