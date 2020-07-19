@@ -190,7 +190,13 @@
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">SẢN PHẨM ĐÃ CHỌN</span>
-            <span class="badge badge-secondary badge-pill">3</span>
+            <span class="badge badge-secondary badge-pill">
+                <?php
+
+
+                ?>
+
+            </span>
           </h4>
 
           <!-- Cart -->
