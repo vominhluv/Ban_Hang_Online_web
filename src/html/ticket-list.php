@@ -423,6 +423,7 @@
                                                     $sql="select count(sp_id) as maxid from tb_sp";
                                                     $result=mysqli_query($conn,$sql);
                                                     $row=mysqli_fetch_assoc($result);
+                                                    $maxid=$row['maxid'];
                                                     echo $row['maxid'];
 //                                                ?>
                                                 </h1>
@@ -434,8 +435,17 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-cyan text-center">
-                                                <h1 class="font-light text-white">1,738</h1>
-                                                <h6 class="text-white">Responded</h6>
+                                                <h1 class="font-light text-white">
+                                                <?php
+                                                    include_once ('connet.php');
+                                                    $sql="select MAX(sp_id) as idnow from tb_sp";
+                                                    $result=mysqli_query($conn,$sql);
+                                                    $row=mysqli_fetch_assoc($result);
+                                
+                                                    echo $row['idnow'];
+                                           ?>
+                                                </h1>
+                                                <h6 class="text-white">ID Hiện Tại</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -443,8 +453,10 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-success text-center">
-                                                <h1 class="font-light text-white">1100</h1>
-                                                <h6 class="text-white">Resolve</h6>
+                                            <!-- dữ liệu này để thêm add to card -->
+                                                <h1 class="font-light text-white">0</h1>
+                                                <h6 class="text-white">Đã bán</h6>
+                                                  <!-- dữ liệu này để thêm add to card -->
                                             </div>
                                         </div>
                                     </div>
@@ -452,7 +464,12 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-danger text-center">
-                                                <h1 class="font-light text-white" id="click">0</h1>
+                                                <h1 class="font-light text-white" id="click"><?php
+                                                    include_once ('connet.php');
+                                                    
+                                                  echo $row['idnow']-$maxid;
+                                            ?>
+                                            </h1>
                                                 <h6 class="text-white" >Đã Xóa</h6>
                                             </div>
                                         </div>
