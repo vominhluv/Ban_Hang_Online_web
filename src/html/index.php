@@ -986,13 +986,11 @@
                                     <div class="col-3 text-right">
                                         <span class="mb-0 font-14 text-dark font-weight-medium">12%</span>
                                     </div>
->>>>>>> origin/master
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
             </div>
             <!-- *************************************************************** -->
             <!-- End Sales Charts Section -->
@@ -1160,14 +1158,13 @@
                                                 Ago</span>
                                             <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
                                         </div>
->>>>>>> origin/master
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
+
             </div>
             <!-- *************************************************************** -->
             <!-- End Location and Earnings Charts Section -->
@@ -1537,12 +1534,12 @@
                                         </tbody>
                                     </table>
                                 </div>
->>>>>>> origin/master
+
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
+
             </div>
             <!-- *************************************************************** -->
             <!-- End Top Leader Table -->
@@ -1641,7 +1638,7 @@
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard1.min.js"></script>
->>>>>>> origin/master
+
 </body>
 
 </html>

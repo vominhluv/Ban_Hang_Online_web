@@ -496,7 +496,7 @@
                                                 <td>$name</td>
                                                 <td>$prices</td>
                                                 <td>
-                                                    <button  class="form-control custom-shadow custom-radius border-1" ><a href="del-fixlSP.php?edit=$id" >More</a></button>
+                                                    <button  class="form-control custom-shadow custom-radius border-1" ><a href="fixSP.php?edit=$id" >More</a></button>
                                                     <a href="del-fixlSP.php?id=$id"><button class="form-control custom-shadow custom-radius border-1" onclick="demclick()">Delete</button></a>
                                                 </td>
                                             </tr>
