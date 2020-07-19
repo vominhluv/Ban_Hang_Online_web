@@ -14,6 +14,7 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -151,14 +152,6 @@
 
             <p>$mota</p>
 
-            <form class="d-flex justify-content-left">
-              <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px"min=1>
-              <a href="don-hang.html"><button class="btn btn-primary btn-md my-0 p" type="submit">Thêm Vào Giở Hàng</a>
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
-
-            </form>
 
           </div>
           <!--Content-->
@@ -175,10 +168,26 @@ EOD;
       ?>
       <!--Grid row-->
 
-      <hr>
-
      
-
+      <form  style="margin-left=100px" action="../Ban_Hang_Online_web/shopping/add.php" method="GET">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                      
+                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtuser"type="number" min=1 placehoder="Số lượng"/>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9 text-center">
+                    <button type="submit" class="btn btn-block btn-dark"action="../Ban_Hang_Online_web/shopping/add.php" method="GET">Thêm vào giỏ hàng
+                    <i class="fas fa-shopping-cart ml-1"></i>
+                  </button>
+                    
+                </div>
+            </div>
+        </form>
+     
+        <hr>
 
     </div>
   </main>
