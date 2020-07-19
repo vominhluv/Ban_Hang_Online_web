@@ -337,13 +337,14 @@
 
                 // Tìm Start
                 $start = ($current_page - 1) * $limit;
-                $sql = "select sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
+                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
                 $resut = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($resut) > 0) {
                     while ($row = mysqli_fetch_assoc($resut)) {
                         $pic = $row['sp_hinhanh'];
                         $prices = $row['sp_gia'];
                         $kind = $row['sp_theloai'];
+                        $id=$row['sp_id'];
                         $name = $row['sp_tensanpham'];
                         $kq = <<<EOD
             <!--Grid row-->
@@ -356,7 +357,7 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <a href="./product-page (1).html">
+                                <a href="./product-page (1).php?id=$id">
                                     <img src=$pic class="card-img-top"
                                          alt="">
 
@@ -376,7 +377,7 @@
                                 </a>
                                 <h5>
                                     <strong>
-                                        <a href="" class="dark-grey-text">$name
+                                        <a href="./product-page (1).php?id=$id" class="dark-grey-text">$name
                                             <span class="badge badge-pill danger-color">NEW</span>
                                         </a>
                                     </strong>
