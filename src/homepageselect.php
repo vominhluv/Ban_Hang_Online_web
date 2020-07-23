@@ -279,40 +279,29 @@
 
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="basicExampleNav">
-                <!-- Links --><?php
-                include_once ('connet.php');
-                $somi="Áo sơ mi";
-                $thun="Áo thun";
-                $khac="khác";
-                $link=<<<EOD
-               
+                <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.php">Tất cả
+                        <a class="nav-link" href="homepage.php?select=">Tất cả
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$somi">Áo sơ mi</a>
+                        <a class="nav-link" href="#">Áo sơ mi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$thun">Áo thun</a>
+                        <a class="nav-link" href="#">Áo thể thao</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$khac">Khác</a>
+                        <a class="nav-link" href="#">Khác</a>
                     </li>
 
                 </ul>
-EOD;
-                echo $link;
-                ?>
                 <!-- Links -->
 
-                <form class="form-inline" action="search.php">
+                <form class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm" aria-label="Search">
-                        <button type="submit">Tìm</button>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
                     </div>
                 </form>
             </div>
@@ -347,7 +336,7 @@ EOD;
 
                 // Tìm Start
                 $start = ($current_page - 1) * $limit;
-                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
+                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_theloai='Áo sơ mi' LIMIT $start, $limit";
                 $resut = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($resut) > 0) {
                     while ($row = mysqli_fetch_assoc($resut)) {

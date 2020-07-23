@@ -184,23 +184,33 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
         <div class="col-md-4 mb-4">
 
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">SẢN PHẨM ĐÃ CHỌN</span>
             <span class="badge badge-secondary badge-pill">
-                <?php
 
-
-                ?>
 
             </span>
           </h4>
 
-          <!-- Cart -->
           <ul class="list-group mb-3 z-depth-1">
+              <?php
+              $ten=$_GET['name'];
+              $sl=$_GET['txtnum'];
+              include_once ('connet.php');
+              $id=$_GET['id'];
+              $sql = "Select sp_tensanpham,sp_gia,from tb_sp where sp_id='$ten'";
+              $resut = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($resut) > 0) {
+              while ($row = mysqli_fetch_assoc($resut)) {
+              $prices = $row['sp_dongia'];
+              $name = $row['sp_tensanpham'];
+              $id=$row['sp_id'];
+              $mota=$row['sp_mota'];
+              $hinhanh=$row['sp_hinhanh'];
+              $sp=<<<EOD
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Áo thun</h6>
@@ -208,32 +218,16 @@
               </div>
               <span class="text-muted">200,000 đ</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Quần thun</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">100,000 đ</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Áo lạnh</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">100,000 đ</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">MÃ KHUYẾN MÃI</h6>
-                <small></small>
-              </div>
-              <span class="text-success">-20%</span>
-            </li>
+              
             <li class="list-group-item d-flex justify-content-between">
               <span>TỔNG CỘNG</span>
               <strong>320,000</strong>
             </li>
-          </ul>
+EOD;
+
+              ?>
+
+
           <!-- Cart -->
 
           <!-- Promo code -->
@@ -248,7 +242,6 @@
           <!-- Promo code -->
 
         </div>
-        <!--Grid column-->
 
       </div>
       <!--Grid row-->

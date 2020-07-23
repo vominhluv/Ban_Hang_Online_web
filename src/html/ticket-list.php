@@ -8,6 +8,10 @@
             parseInt(clicks);
             document.getElementById("click").innerHTML = clicks;
         };
+            function getname() {
+        var getname =document.getElementById('name');
+
+        }
     </script>
       <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -510,11 +514,11 @@
                                             <td>$i</td>
                                                 <td>$id</td>
                                                 <td>$type</td>
-                                                <td>$name</td>
+                                                <td id="name">$name</td>
                                                 <td>$prices</td>
                                                 <td>
                                                     <button  class="form-control custom-shadow custom-radius border-1" ><a href="fixSP.php?edit=$id" >More</a></button>
-                                                    <a href="del-fixlSP.php?id=$id"><button class="form-control custom-shadow custom-radius border-1" onclick="demclick()">Delete</button></a>
+                                                    <a href="del-fixlSP.php?id=$id"><button class="form-control custom-shadow custom-radius border-1" onclick="alert('Bạn chắc chắn muốn xóa sản sản phẩm này ?')">Delete</button></a>
                                                 </td>
                                             </tr>
 

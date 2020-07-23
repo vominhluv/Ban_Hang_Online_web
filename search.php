@@ -311,7 +311,8 @@ EOD;
 
                 <form class="form-inline" action="search.php">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm" aria-label="Search">
+
+                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="<?php $search=$_GET['search']; echo $search; ?>" aria-label="Search">
                         <button type="submit">Tìm</button>
                     </div>
                 </form>
@@ -347,7 +348,8 @@ EOD;
 
                 // Tìm Start
                 $start = ($current_page - 1) * $limit;
-                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
+                $search=$_GET['search'];
+                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_tensanpham LIKE '%".$search."%' LIMIT $start, $limit";
                 $resut = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($resut) > 0) {
                     while ($row = mysqli_fetch_assoc($resut)) {

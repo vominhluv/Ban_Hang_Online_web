@@ -165,28 +165,29 @@ EOD;
            echo $cmm;
           }
           else echo "cmm";
-      ?>
-      <!--Grid row-->
 
-     
-      <form  style="margin-left=100px" action="../Ban_Hang_Online_web/shopping/add.php" method="GET">
+
+     $getchuoi=<<<EOD
+      <form  style="margin-left=100px" action="don-hang.php?id=$id" method="GET">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="form-group">
-                      
-                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtuser"type="number" min=1 placehoder="Số lượng"/>
+                      <div name="name">$id</div>
+                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtnum"type="number" min=1 placehoder="Số lượng"/>
                     </div>
                 </div>
                 
                 <div class="col-lg-9 text-center">
-                    <button type="submit" class="btn btn-block btn-dark"action="../Ban_Hang_Online_web/shopping/add.php" method="GET">Thêm vào giỏ hàng
+                    <button type="submit" class="btn btn-block btn-dark">Thêm vào giỏ hàng
                     <i class="fas fa-shopping-cart ml-1"></i>
                   </button>
                     
                 </div>
             </div>
         </form>
-     
+  EOD;
+      echo $getchuoi;
+    ?>
         <hr>
 
     </div>
