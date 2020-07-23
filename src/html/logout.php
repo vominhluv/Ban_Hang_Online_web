@@ -2,6 +2,7 @@
 session_start();
 
 unset($_SESSION['check']);
+unset($_SESSION['name']);
 
 session_destroy();
 

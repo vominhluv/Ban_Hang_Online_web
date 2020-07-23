@@ -6,7 +6,7 @@ if (!isset($_SESSION["check"]))
     // Lưu Session
    
 } 
-$id=$_SESSION['check'];
+$id=$_SESSION['name'];
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -393,7 +393,24 @@ $id=$_SESSION['check'];
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Good Morning Jason!</h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1"><?php             
+                        date_default_timezone_set('Asia/Ho_Chi_Minh');
+                         $time=date("h");
+                         $mad=date("a");
+                           if ($mad=="am") {
+                             if ($time<=12) {
+                                echo "Ngày Mới Vui Vẻ! ";
+                             }
+                            }
+                             else{
+                                if ($time<=5) {
+                                    echo "Chào Buổi Chiều! ";
+                             }
+                             else{
+                                 echo"Buổi tối an lành, Goodnight! ";
+                             }
+                           }                
+                        echo $id; ?></h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
