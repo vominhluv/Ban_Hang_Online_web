@@ -1,3 +1,13 @@
+<?php session_start();
+// Nếu click vào nút Lưu Session
+if (!isset($_SESSION["check"])) 
+{
+    header('Location:authentication-login1.php');
+    // Lưu Session
+   
+} 
+$id=$_SESSION['check'];
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -224,7 +234,14 @@
                                 <img src="../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
                                     width="40">
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                        class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
+                                        class="text-dark"><?php 
+                                        $connection = mysqli_connect("localhost", "root", "", "website_mvc");
+                                        $sql="select adminName from tbl_admin where adminUser='.$id.";
+                                        $kq=mysqli_query($connection,$sql);
+                                       $row=mysql_fetch_assoc($kq);
+                                           
+                                        echo $row['adminName']; ?>
+                                        </span> <i data-feather="chevron-down"
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -242,8 +259,10 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
-                                        class="svg-icon mr-2 ml-1"></i>
+                                <a class="dropdown-item" href="logout.php" ><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1">
+                                     
+                                    </i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>
                                 <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
@@ -347,9 +366,13 @@
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                   
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                        <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="logout.php"
                                 aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">Logout</span></a></li>
+                                    class="hide-menu">Logout</span>
+                                    
+                                    </a>
+                                    </li>
+                                    
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -833,5 +856,7 @@
     <script src="../assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard1.min.js"></script>
 </body>
+
+
 
 </html>

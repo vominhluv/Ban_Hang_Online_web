@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $connection = mysqli_connect("localhost", "root", "", "website_mvc");
 $user=$_GET['txtuser'];
 $pass=$_GET['txtpass'];
@@ -15,7 +17,8 @@ if ($result) {
       $gv=$row[4];
       if (($user == $gx) && ($pass== $gv))
       {
-        header('Location:index.php');
+        $_SESSION["check"]=$gx;
+        header('Location:index.php?');
       }
       else 
       header('Location:authentication-login1.php');
