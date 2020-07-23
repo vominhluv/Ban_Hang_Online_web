@@ -58,7 +58,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="home-page.html" target="_blank">
+        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
             <strong class="blue-text">77</strong>
         </a>
 
@@ -74,7 +74,7 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="home-page.html">Trang chủ
+                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -354,7 +354,7 @@ EOD;
                         $pic = $row['sp_hinhanh'];
                         $prices = $row['sp_gia'];
                         $kind = $row['sp_theloai'];
-                        $id=$row['sp_id'];
+                         $id=$row['sp_id'];
                         $name = $row['sp_tensanpham'];
                         $kq = <<<EOD
             <!--Grid row-->

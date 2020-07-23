@@ -104,6 +104,7 @@
       <?php
        include_once ('connet.php');
        $id=$_GET['id'];
+       
        $sql = "Select tb_chitiet.sp_tensanpham,tb_sp.sp_id,tb_sp.sp_hinhanh,tb_chitiet.sp_mota,tb_chitiet.sp_dongia from tb_sp,tb_chitiet Where tb_sp.sp_id=$id and tb_sp.sp_id=tb_chitiet.sp_id";
        $resut = mysqli_query($conn, $sql);
        if (mysqli_num_rows($resut) > 0) {
@@ -113,6 +114,7 @@
             $id=$row['sp_id'];
             $mota=$row['sp_mota'];
             $hinhanh=$row['sp_hinhanh'];
+            setcookie("id_sanpham", $id, time()+3600,"/","", 0);
             
       $cmm=<<<EOD
       <div class="row wow fadeIn">
@@ -168,25 +170,27 @@ EOD;
 
 
      $getchuoi=<<<EOD
-      <form  style="margin-left=100px" action="don-hang.php?id=$id" method="GET">
+      <form  style="margin-left=100px" action="don-hang.php" method="GET">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="form-group">
-                      <div name="name">$id</div>
-                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtnum"type="number" min=1 placehoder="Số lượng"/>
+                      <div name="name"></div>
+                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtnum"type="number"  min= 1 placehoder="Số lượng"/>
                     </div>
                 </div>
                 
                 <div class="col-lg-9 text-center">
                     <button type="submit" class="btn btn-block btn-dark">Thêm vào giỏ hàng
+                    
                     <i class="fas fa-shopping-cart ml-1"></i>
                   </button>
                     
                 </div>
             </div>
         </form>
-  EOD;
-      echo $getchuoi;
+EOD;
+    echo $getchuoi;
+    
     ?>
         <hr>
 
