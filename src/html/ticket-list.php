@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<?php
-    global $conn;
-
-    function connect_db(){
-        global $conn;
-
-        if(!$conn){
-            $conn=mysqli_connect('localhost','root','','qlao') or die ('Can not connect to database');
-            mysqli_set_charset($conn,'utf8');
-        }
-    }
-    function disconnect_db(){
-        global $conn;
-        if($conn){
-            mysqli_close($conn);
-        }
-    }
-    function get_all_product(){
-        global $conn;
-        connect_db();
-        $sql="select * from tb_sp";
-        $query= mysqli_query($conn,$sql);
-        $result = array();
-        if ($query){
-            while ($row = mysqli_fetch_assoc($query)){
-                $result[]=$row;
-            }
-        }
-        return $result;
-    }
-    $sp = get_all_product();
-?>
 <head>
-    <meta charset="utf-8">
+    <script type="text/javascript">
+        let clicks = 1;
+        function demclick() {
+            clicks += 1;
+            parseInt(clicks);
+            document.getElementById("click").innerHTML = clicks;
+        };
+            function getname() {
+        var getname =document.getElementById('name');
+
+        }
+    </script>
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,6 +24,7 @@
     <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
     <!-- This page css -->
     <!-- Custom CSS -->
+  
     <link href="../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,9 +32,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-</head>
-
 <body>
+
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -67,6 +47,16 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -130,7 +120,7 @@
                                     <li>
                                         <div class="message-center notifications position-relative">
                                             <!-- Message -->
-                                            <a href="javascript:void(0)"
+                                            <a href="javascript:void(0)"9i
                                                 class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <div class="btn btn-danger rounded-circle btn-circle"><i
                                                         data-feather="airplay" class="text-white"></i></div>
@@ -302,17 +292,13 @@
 
                         <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                                    class="hide-menu">Ticket List
+                                    class="hide-menu">Product List
                                 </span></a>
                         </li>
                         
                         
 
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-                                    class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="form-inputs.html" class="sidebar-link"><span
                                             class="hide-menu"> Form Inputs
@@ -394,12 +380,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Ticket List</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Product List</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="index.html" class="text-muted">Apps</a></li>
-                                    <li class="breadcrumb-item text-muted active" aria-current="page">Ticket List</li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Product List</li>
                                 </ol>
                             </nav>
                         </div>
@@ -436,17 +422,16 @@
                                         <div class="card card-hover">
                                             <div class="p-2 bg-primary text-center">
                                                 <h1 class="font-light text-white">
-                                                <?php
-                                                    $d=0;
-                                                  foreach ($sp as $item){
-                                                    $d = $d +1;
-                                                     } 
-                                                echo $d;
-                                                ?>
-                                                
-                                                
+<!--                                                --><?php
+                                                    include_once ('connet.php');
+                                                    $sql="select count(sp_id) as maxid from tb_sp";
+                                                    $result=mysqli_query($conn,$sql);
+                                                    $row=mysqli_fetch_assoc($result);
+                                                    $maxid=$row['maxid'];
+                                                    echo $row['maxid'];
+//                                                ?>
                                                 </h1>
-                                                <h6 class="text-white">Total Products</h6>
+                                                <h6 class="text-white">Kho Hàng</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -454,8 +439,17 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-cyan text-center">
-                                                <h1 class="font-light text-white">1,738</h1>
-                                                <h6 class="text-white">Responded</h6>
+                                                <h1 class="font-light text-white">
+                                                <?php
+                                                    include_once ('connet.php');
+                                                    $sql="select MAX(sp_id) as idnow from tb_sp";
+                                                    $result=mysqli_query($conn,$sql);
+                                                    $row=mysqli_fetch_assoc($result);
+                                
+                                                    echo $row['idnow'];
+                                           ?>
+                                                </h1>
+                                                <h6 class="text-white">ID Hiện Tại</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -463,8 +457,10 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-success text-center">
-                                                <h1 class="font-light text-white">1100</h1>
-                                                <h6 class="text-white">Resolve</h6>
+                                            <!-- dữ liệu này để thêm add to card -->
+                                                <h1 class="font-light text-white">0</h1>
+                                                <h6 class="text-white">Đã bán</h6>
+                                                  <!-- dữ liệu này để thêm add to card -->
                                             </div>
                                         </div>
                                     </div>
@@ -472,8 +468,13 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-danger text-center">
-                                                <h1 class="font-light text-white">964</h1>
-                                                <h6 class="text-white">Pending</h6>
+                                                <h1 class="font-light text-white" id="click"><?php
+                                                    include_once ('connet.php');
+                                                    
+                                                  echo $row['idnow']-$maxid;
+                                            ?>
+                                            </h1>
+                                                <h6 class="text-white" >Đã Xóa</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -483,30 +484,56 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                            <th>Status</th>
-                                                <th>Title</th>
-                                                <th>ID</th>
-                                                <th>Product</th>
+                                                <th>STT</th>
+                                            <th>ID</th>
+                                                <th>TYPE</th>
+                                                <th>NAME</th>
+                                                <th>PRICES</th>
                                                 <th>Edit Information</th>
                                             </tr>
                                         </thead>
-                                        <?php foreach ($sp as $item){?>
+                                        <?php
+                                        $servername = "127.0.0.1";
+                                        $username = "root";
+                                        $password = "";
+                                        $database  = "qlao";
+                                        $conn = mysqli_connect($servername, $username, $password,$database) or die("lỗi");
+                                        mysqli_set_charset($conn, 'UTF8');
+                                        $sql="select * from tb_sp";
+                                        $result=mysqli_query($conn,$sql);
+                                        $i=1;
+                                        if(mysqli_num_rows($result)>0){
+                                            while ($row=mysqli_fetch_assoc($result)){
+                                                $id=$row["sp_id"];
+                                                $type=$row["sp_theloai"];
+                                                $name=$row["sp_tensanpham"];
+                                                $prices=$row["sp_gia"];
+                                                $kq=<<<EOD
+                                    <tbody>
                                             <tr>
-                                                <td><?php echo $item['sp_id']; ?></td>
-                                                
-  
-                                                <td><?php echo $item['sp_theloai']; ?></td>
-                                                <td><?php echo $item['sp_tensanpham']; ?></td>
-                                                <td><?php echo $item['sp_gia']; ?></td>
+                                            <td>$i</td>
+                                                <td>$id</td>
+                                                <td>$type</td>
+                                                <td id="name">$name</td>
+                                                <td>$prices</td>
                                                 <td>
-                                                    
-                                                    <button  class="form-control custom-shadow custom-radius border-1">More</button>
-                                                    <button class="form-control custom-shadow custom-radius border-1">Delete</button>
-
+                                                    <button  class="form-control custom-shadow custom-radius border-1" ><a href="fixSP.php?edit=$id" >More</a></button>
+                                                    <a href="del-fixlSP.php?id=$id"><button class="form-control custom-shadow custom-radius border-1" onclick="alert('Bạn chắc chắn muốn xóa sản sản phẩm này ?')">Delete</button></a>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+
                                         </tbody>
+EOD;
+                                                echo $kq; $i+=1;
+                                            }
+
+                                        }
+
+
+//                                        }
+                                        ?>
+
+
                                         <tfoot>
                                             <tr>
                                                 <th>Status</th>
@@ -516,7 +543,21 @@
                                                 <th>Edit Information</th>
                                             </tr>
                                         </tfoot>
+                                        <tfoot>
+                                        <tr>
+
+                                <form action="addsp.php" method="get">
+                                            <th><input type="text" name="id" placeholder="Nhập ID..."></th>
+                                            <th><input type="text" name="type" placeholder="Nhập Loại..."></th>
+                                            <th><input type="text" name="name" placeholder="Nhập Tên..."></th>
+                                            <th><input type="text" name="prices" placeholder="Nhập Giá..."></th>
+                                            <th><input type="text" name="picture" placeholder="Nhập link..."></th>
+                                            <th><button type="submit">Xác Nhận</button></th>
+                                   </form>
+                                        </tr>
+                                        </tfoot>
                                     </table>
+
                                     <ul class="pagination float-right">
                                         <li class="page-item disabled">
                                             <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -572,6 +613,7 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+  
 </body>
 
 </html>

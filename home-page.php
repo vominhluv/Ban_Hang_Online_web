@@ -14,7 +14,8 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
-    <!--    <script src="homepage.js"/>-->
+    <script>
+    </script>
     <style type="text/css">
         button{
             border: none;
@@ -279,40 +280,30 @@
 
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="basicExampleNav">
-                <!-- Links --><?php
-                include_once ('connet.php');
-                $somi="Áo sơ mi";
-                $thun="Áo thun";
-                $khac="khác";
-                $link=<<<EOD
-               
+
+                <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.php">Tất cả
+                        <a class="nav-link" href="#">Tất cả
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$somi">Áo sơ mi</a>
+                        <a class="nav-link" href="#">Áo sơ mi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$thun">Áo thun</a>
+                        <a class="nav-link" href="#">Áo thể thao</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$khac">Khác</a>
+                        <a class="nav-link" href="#">Khác</a>
                     </li>
 
                 </ul>
-EOD;
-                echo $link;
-                ?>
                 <!-- Links -->
 
-                <form class="form-inline" action="search.php">
+                <form class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm" aria-label="Search">
-                        <button type="submit">Tìm</button>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
                     </div>
                 </form>
             </div>
@@ -321,61 +312,32 @@ EOD;
         </nav>
         <!--/.Navbar-->
 
-        <!--Section: Products v.3-->
-        <section class="text-center mb-4"><div class="row wow fadeIn">
-                <?php
-                include_once ('connet.php');
-                $result = mysqli_query($conn, 'select count(sp_id) as total from tb_sp');
-                $row = mysqli_fetch_assoc($result);
-                $total_records = $row['total'];
 
-                // BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
-                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-                $limit = 8;
 
-                // BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
-                // tổng số trang
-                $total_page = ceil($total_records / $limit);
-
-                // Giới hạn current_page trong khoảng 1 đến total_page
-                if ($current_page > $total_page){
-                    $current_page = $total_page;
-                }
-                else if ($current_page < 1){
-                    $current_page = 1;
-                }
-
-                // Tìm Start
-                $start = ($current_page - 1) * $limit;
-                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
-                $resut = mysqli_query($conn, $sql);
-                if (mysqli_num_rows($resut) > 0) {
-                    while ($row = mysqli_fetch_assoc($resut)) {
-                        $pic = $row['sp_hinhanh'];
-                        $prices = $row['sp_gia'];
-                        $kind = $row['sp_theloai'];
-                        $id=$row['sp_id'];
-                        $name = $row['sp_tensanpham'];
-                        $kq = <<<EOD
-            <!--Grid row-->
-                <!--Grid column-->
+      <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+           <?php
+             include_once ("connect.php");//tên thể loại giá
+             $sql= "select sq_hinhanh,sp_tensanpham,sp_theloai,sp_gia from tb_sp";
+             $result= mysqli_query($conn,$sql);
+             if(mysqli_num_rows($result)>0) {
+             while ($row=mysqli_fetch_assoc($result)) {
+             $name=$row['sp_tensanpham'];
+             $kind=$row['sp_theloai'];
+             $prices=$row['sp_gia'];
+             $pic=$row['sp_hinhanh'];
+            $kq=<<<EOD
+            <div class="row wow fadeIn">
                 <div class="col-lg-3 col-md-6 mb-4">
-
-                    <!--Card-->
                     <a href="product-page.html">
                         <div class="card">
-
-                            <!--Card image-->
                             <div class="view overlay">
-                                <a href="./product-page (1).php?id=$id">
+                                <a href="./product-page (1).html">
                                     <img src=$pic class="card-img-top"
                                          alt="">
 
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
-
-
-
                             </div>
                             <!--Card image-->
 
@@ -383,66 +345,286 @@ EOD;
                             <div class="card-body text-center">
                                 <!--Category & Title-->
                                 <a href="./product-page (1).html" class="grey-text">
-                                    <h5>$kind</h5>
+                                    <h5>$name</h5>
                                 </a>
                                 <h5>
                                     <strong>
-                                        <a href="./product-page (1).php?id=$id" class="dark-grey-text">$name
+                                        <a href="" class="dark-grey-text">Denim shirt
                                             <span class="badge badge-pill danger-color">NEW</span>
                                         </a>
                                     </strong>
                                 </h5>
 
                                 <h4 class="font-weight-bold blue-text">
-                                    <strong>$prices VNĐ</strong>
+                                    <strong>$prices</strong>
                                 </h4>
 
                             </div>
                             <!--Card content-->
 
-                        </div></a>
+                        </div>
+                    <!--Card-->
+
+                </div>
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>Áo Jean</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Black jacket</a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>299.000</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                <!--Fourth column-->
+
+            </div>
+            <!--Grid row-->
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>Áo sơ mi</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Denim shirt
+                                        <span class="badge badge-pill danger-color">NEW</span>
+                                    </a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>219.000</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
                     <!--Card-->
 
                 </div>
                 <!--Grid column-->
 
-           
-            <!--Grid row-->
-EOD;
-                        echo $kq;
-                    }
-                }
-                ?>
-            </div>
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4">
 
-        </section> <!--Section: Products v.3-->
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>Áo thể thao</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Sweatshirt</a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>329.000</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" class="card-img-top"
+                                 alt="">
+                            <a >
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>Áo thể thao</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Grey blouse
+                                        <span class="badge badge-pill primary-color">bestseller</span>
+                                    </a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>99.000</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Fourth column-->
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>Khác</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Black jacket</a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>499.000</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                <!--Fourth column-->
+
+            </div>
+            <!--Grid row-->
+            
+EOD;
+echo $kq;
+
+             ?> 
+        </section>
+
+        <!--Section: Products v.3-->
 
         <!--Pagination-->
         <nav class="d-flex justify-content-center wow fadeIn">
+            <ul class="pagination pg-blue">
 
-            <?php
-            // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
-            if ($current_page > 1 && $total_page > 1){
-                echo '<a href="homepage.php?page='.($current_page-1).'">Prev</a> | ';
-            }
+                <!--Arrow left-->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
 
-            // Lặp khoảng giữa
-            for ($i = 1; $i <= $total_page; $i++){
-                // Nếu là trang hiện tại thì hiển thị thẻ span
-                // ngược lại hiển thị thẻ a
-                if ($i == $current_page){
-                    echo '<span>'.$i.'</span> | ';
-                }
-                else{
-                    echo '<a href="homepage.php?page='.$i.'">'.$i.'</a> | ';
-                }
-            }
+                <li class="page-item active">
+                    <a class="page-link" href="#">1
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
 
-            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-            if ($current_page < $total_page && $total_page > 1){
-                echo '<a href="homepage.php?page='.($current_page+1).'">Next</a> | ';
-            }
-            ?>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <!--Pagination-->
 
@@ -508,5 +690,4 @@ EOD;
 
 </script>
 </body>
-
 </html>

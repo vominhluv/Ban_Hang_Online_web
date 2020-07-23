@@ -311,7 +311,7 @@ EOD;
 
                 <form class="form-inline" action="search.php">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm " aria-label="Search">
                         <button type="submit">Tìm</button>
                     </div>
                 </form>
@@ -325,6 +325,7 @@ EOD;
         <section class="text-center mb-4"><div class="row wow fadeIn">
                 <?php
                 include_once ('connet.php');
+                $get=$_GET['select'];
                 $result = mysqli_query($conn, 'select count(sp_id) as total from tb_sp');
                 $row = mysqli_fetch_assoc($result);
                 $total_records = $row['total'];
@@ -347,7 +348,10 @@ EOD;
 
                 // Tìm Start
                 $start = ($current_page - 1) * $limit;
-                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp LIMIT $start, $limit";
+                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_theloai='$get' LIMIT $start, $limit";
+                if($get=="khác"){
+                    $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_theloai !='Áo thun' and sp_theloai !='Áo sơ mi' LIMIT $start, $limit";
+                }
                 $resut = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($resut) > 0) {
                     while ($row = mysqli_fetch_assoc($resut)) {
@@ -440,7 +444,7 @@ EOD;
 
             // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
             if ($current_page < $total_page && $total_page > 1){
-                echo '<a href="homepage.php?page='.($current_page+1).'">Next</a> | ';
+                echo '<a href="homepageselect.php?page='.($current_page+1).'">Next</a> | ';
             }
             ?>
         </nav>

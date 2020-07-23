@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,6 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -101,36 +100,37 @@
   <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
 
-      <?php
-       include_once ('connet.php');
-       $id=$_GET['id'];
-       $sql = "Select tb_chitiet.sp_tensanpham,tb_sp.sp_id,tb_sp.sp_hinhanh,tb_chitiet.sp_mota,tb_chitiet.sp_dongia from tb_sp,tb_chitiet Where tb_sp.sp_id=$id and tb_sp.sp_id=tb_chitiet.sp_id";
-       $resut = mysqli_query($conn, $sql);
-       if (mysqli_num_rows($resut) > 0) {
-           while ($row = mysqli_fetch_assoc($resut)) {
-            $prices = $row['sp_dongia'];
-            $name = $row['sp_tensanpham'];
-            $id=$row['sp_id'];
-            $mota=$row['sp_mota'];
-            $hinhanh=$row['sp_hinhanh'];
-            
-      $cmm=<<<EOD
+      <!--Grid row-->
       <div class="row wow fadeIn">
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src=$hinhanh class="img-fluid" alt="">
+          <img src="./img/product1.jpg" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
-
+<!--beginsp-->
           <!--Content-->
+            <?php
+            //mysqli_set_charset($conn, 'UTF8');
+            include_once("connet.php");
+            $sql="select pricess from tb_sp";
+            $kq = mysqli_query($conn,$sql);
+            if(mysqli_num_rows($kq)>0){
+                while ($row = mysqli_fetch_assoc($kq)){
+                    $pricess=$row["pricess"];
+                    echo $pricess;
+
+
+                }
+            }
+
+$str= <<<EOD
           <div class="p-4">
-          <p class="lead font-weight-bold">$name</p>
             <div class="mb-3">
               <a href="">
                 <span class="badge purple mr-1">Độc</span>
@@ -144,51 +144,90 @@
             </div>
 
             <p class="lead">
-              
-              <span>$prices.đ</span>
+              <span class="mr-1">
+                <del id="price">
+                </del>
+              </span>
+              <span>$pricess</span>
             </p>
 
             <p class="lead font-weight-bold">Mô Tả</p>
 
-            <p>$mota</p>
+            <p>Kiểu dáng hiện đại, gọn gàng với viền màn hình mỏng.
+              Độ phân giải HD hiển thị hình ảnh chi tiết cùng màu sắc rực rỡ, sống động đến từ công nghệ Brilliantly Clear Enhancer.
+              Âm thanh vòm lôi cuốn, hiệu ứng nổi bật với công nghệ Dolby Digital.
+              Xem truyền hình kỹ thuật số chất lượng từ đầu thu DVB-T2.</p>
 
+            <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px"min=1>
+              <a href="don-hang.html"><button class="btn btn-primary btn-md my-0 p" type="submit">Thêm Vào Giở Hàng</a>
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form>
 
           </div>
-          <!--Content-->
+EOD;
+            echo $str;
+            ?>
+            <!--Content-->
+<!--endsp-->
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <h4 class="my-4 h4">Thông Tin Thêm</h4>
+
+          <p> Tặng 2 tháng tiền điện trị giá 200,000đ(đã trừ vào giá) Xem chi tiết
+             Mua điện thoại với giá giảm 10% (Loa mua kèm không áp dụng khuyến mãi khác)
+            Tặng 2 suất mua Laptop đời mới giảm 40% (không áp dụng thêm khuyến mãi khác) .</p>
 
         </div>
         <!--Grid column-->
 
       </div>
-EOD;
-           }
-           echo $cmm;
-          }
-          else echo "cmm";
+      <!--Grid row-->
 
+      <!--Grid row-->
+      <div class="row wow fadeIn">
 
-     $getchuoi=<<<EOD
-      <form  style="margin-left=100px" action="don-hang.php?id=$id" method="GET">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="form-group">
-                      <div name="name">$id</div>
-                       <input class="form-control giohang" placeholder="Nhập số lượng" id="uname" name="txtnum"type="number" min=1 placehoder="Số lượng"/>
-                    </div>
-                </div>
-                
-                <div class="col-lg-9 text-center">
-                    <button type="submit" class="btn btn-block btn-dark">Thêm vào giỏ hàng
-                    <i class="fas fa-shopping-cart ml-1"></i>
-                  </button>
-                    
-                </div>
-            </div>
-        </form>
-  EOD;
-      echo $getchuoi;
-    ?>
-        <hr>
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
 
     </div>
   </main>
@@ -272,6 +311,7 @@ EOD;
     new WOW().init();
 
   </script>
+
 </body>
 
 </html>
