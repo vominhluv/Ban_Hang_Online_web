@@ -74,7 +74,7 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                    <a class="nav-link waves-effect" href="home-page.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -82,7 +82,7 @@
                     <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="./promotion.html"
+                    <a class="nav-link waves-effect" href="./promotion.php"
                        target="_blank">Khuyến mãi</a>
                 </li>
                 <li class="nav-item">
@@ -95,8 +95,8 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a href="./don-hang.html" class="nav-link waves-effect">
-                        <span class="badge red z-depth-1 mr-1"> 1 </span>
+                    <a href="./don-hang.php" class="nav-link waves-effect">
+                        
                         <i class="fas fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
                     </a>

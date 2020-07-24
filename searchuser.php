@@ -55,93 +55,106 @@
 
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-  <div class="container">
+    <div class="container">
 
-      <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="home-page.php" target="_blank">
-          <strong class="blue-text">77
-            <span class="sr-only">(current)</span>
-          </strong>
-      </a>
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+            <strong class="blue-text">77</strong>
+        </a>
 
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <!-- Left -->
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active ">
-                  <a class="nav-link waves-effect" href="home-page.php">Trang chủ
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp
-                    <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link waves-effect" href="./promotion.php"
-                     target="_blank">Khuyến mãi
-                     <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
-                    <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-          </ul>
-
-          <!-- Right -->
-          <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item">
-                  <a href="./don-hang.php" class="nav-link waves-effect">
-                      
-                      <i class="fas fa-shopping-cart"></i>
-                      <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng 
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
                         <span class="sr-only">(current)</span>
-                      </span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link waves-effect" target="_blank">
-                      <i class="fab fa-facebook-f"></i>
-                  </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li> -->
-             
-                      <li class="nav-item">
-                  <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
-                     target="_blank">
-                      Đăng nhập
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
-                     target="_blank">
-                      Đăng ký
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect" href="tro-giupuser.php" target="_blank">Trợ giúp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="./promotionuser.php"
+                       target="_blank">Khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hanguser.php" target="_blank">Chính sách bán hàng
 
-                  
+                    </a>
+                </li>
+            </ul>
 
-              
-          </ul>
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a href="./don-hanguser.php" class="nav-link waves-effect">
+                       
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link waves-effect" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li> -->
+                <?php
+                    $tendangnhap1 = $_COOKIE['id_tentaikhoan'];
+                    // echo $tendangnhap;
+                    if(isset($tendangnhap1)){
+                        echo $tendangnhap1;
+                        $li =<<<EOD
+                        <li class="nav-item">
+                    <a href="home-page.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng xuất
+                        </a>
+EOD;
+                    
+                    echo $li;
+                    }
+                    
+                    else{
+                        $li =<<<EOD
+                        <li class="nav-item">
+                    <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng nhập
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng ký
+                    </a>
+                </li>
 
-      </div>
+                    
+EOD;
+                    
+                    echo $li;
+                    }
 
-  </div>
+?>
+                
+            </ul>
+
+        </div>
+
+    </div>
 </nav>
 <!-- Navbar -->
 
@@ -325,8 +338,9 @@ EOD;
 
                 <form class="form-inline" action="search.php">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm " aria-label="Search">
-                        <button type="submit">Tìm</button>
+
+                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="<?php $search=$_GET['search']; echo $search; ?>" aria-label="Search">
+                        <button  type="submit">Tìm</button>
                     </div>
                 </form>
             </div>
@@ -339,7 +353,6 @@ EOD;
         <section class="text-center mb-4"><div class="row wow fadeIn">
                 <?php
                 include_once ('connet.php');
-                $get=$_GET['select'];
                 $result = mysqli_query($conn, 'select count(sp_id) as total from tb_sp');
                 $row = mysqli_fetch_assoc($result);
                 $total_records = $row['total'];
@@ -362,10 +375,8 @@ EOD;
 
                 // Tìm Start
                 $start = ($current_page - 1) * $limit;
-                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_theloai='$get' LIMIT $start, $limit";
-                if($get=="khác"){
-                    $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_theloai !='Áo thun' and sp_theloai !='Áo sơ mi' LIMIT $start, $limit";
-                }
+                $search=$_GET['search'];
+                $sql = "select sp_id,sp_hinhanh, sp_gia ,sp_theloai,sp_tensanpham from tb_sp where sp_tensanpham LIKE '%".$search."%' LIMIT $start, $limit";
                 $resut = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($resut) > 0) {
                     while ($row = mysqli_fetch_assoc($resut)) {
@@ -458,7 +469,7 @@ EOD;
 
             // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
             if ($current_page < $total_page && $total_page > 1){
-                echo '<a href="homepageselect.php?page='.($current_page+1).'">Next</a> | ';
+                echo '<a href="homepage.php?page='.($current_page+1).'">Next</a> | ';
             }
             ?>
         </nav>

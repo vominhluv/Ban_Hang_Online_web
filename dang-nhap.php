@@ -20,82 +20,96 @@
 <body class="grey lighten-3 bgrcl">
     
     <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="home-page.html" target="_blank">
-        <strong class="blue-text">77</strong>
+      <a class="navbar-brand waves-effect" href="home-page.php" target="_blank">
+          <strong class="blue-text">77
+            <span class="sr-only">(current)</span>
+          </strong>
       </a>
 
       <!-- Collapse -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <!-- Left -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="home-page.html">Trang chủ
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="./tro-giup.html" target="_blank">Trợ giúp</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="./khuyen-mai.html"
-              target="_blank">Khuyến mãi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
-              
-            </a>
-          </li>
-        </ul>
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                  <a class="nav-link waves-effect" href="home-page.php">Trang chủ
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item ">
+                  <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp
+                    <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link waves-effect" href="./promotion.php"
+                     target="_blank">Khuyến mãi
+                     <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
+                    <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+          </ul>
 
-        <!-- Right -->
-        <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item">
-            <a href="./don-hang.html" class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li> -->
-          <li class="nav-item active">
-            <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              Đăng nhập
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              Đăng ký
-            </a>
-          </li>
-        </ul>
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                  <a href="./don-hang.php" class="nav-link waves-effect">
+                      
+                      <i class="fas fa-shopping-cart"></i>
+                      <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng 
+                        <span class="sr-only">(current)</span>
+                      </span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link waves-effect" target="_blank">
+                      <i class="fab fa-facebook-f"></i>
+                  </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li> -->
+             
+                      <li class="nav-item active ">
+                  <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
+                     target="_blank">
+                      Đăng nhập
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
+                     target="_blank">
+                      Đăng ký
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+
+                  
+
+              
+          </ul>
 
       </div>
 
-    </div>
-  </nav>
-  <!-- Navbar -->
+  </div>
+</nav>
+<!-- Navbar -->
     <!--Main layout-->
     <main class="mt-5 pt-4">
         <div class="container wow fadeIn">
@@ -122,8 +136,8 @@
 
                             <!--email-->
                             <div class="md-form mb-5">
-                                <input type="text" id="email" name="dangnhap" class="form-control" placeholder="Nhập địa chỉ email">
-                                <label for="email" class="">Email</label>
+                                <input type="text" id="email" name="dangnhap" class="form-control" placeholder="Nhập Tên Tài Kho">
+                                <label for="email" class="">Tên đăng nhập</label>
                             </div>
                             <!--email-->
                             <div class="md-form mb-5 ">

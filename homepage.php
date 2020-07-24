@@ -79,14 +79,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp</a>
+                    <a class="nav-link waves-effect"  href="./tro-giupuser.php?id=<?php $name ?>" target="_blank">Trợ giúp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="./promotion.html"
+                    <a class="nav-link waves-effect" href="./promotionuser.php"
                        target="_blank">Khuyến mãi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
+                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hanguser.php" target="_blank">Chính sách bán hàng
 
                     </a>
                 </li>
@@ -95,7 +95,7 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a href="./don-hang.html" class="nav-link waves-effect">
+                    <a href="./don-hanguser.php" class="nav-link waves-effect">
                         <span class="badge red z-depth-1 mr-1"> 1 </span>
                         <i class="fas fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
@@ -321,13 +321,13 @@ EOD;
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$somi">Áo sơ mi</a>
+                        <a class="nav-link" href="homepageselectuser.php?select=$somi">Áo sơ mi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$thun">Áo thun</a>
+                        <a class="nav-link" href="homepageselectuser.php?select=$thun">Áo thun</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="homepageselect.php?select=$khac">Khác</a>
+                        <a class="nav-link" href="homepageselectuser.php?select=$khac">Khác</a>
                     </li>
 
                 </ul>
@@ -336,7 +336,7 @@ EOD;
                 ?>
                 <!-- Links -->
 
-                <form class="form-inline" action="search.php">
+                <form class="form-inline" action="searchuser.php">
                     <div class="md-form my-0">
                         <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm" aria-label="Search">
                         <button type="submit">Tìm</button>
@@ -394,7 +394,7 @@ EOD;
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <a href="./product-page (1).php?id=$id">
+                                <a href="./product-page (1)user.php?id=$id">
                                     <img src=$pic class="card-img-top"
                                          alt="">
 
@@ -409,12 +409,12 @@ EOD;
                             <!--Card content-->
                             <div class="card-body text-center">
                                 <!--Category & Title-->
-                                <a href="./product-page (1).html" class="grey-text">
+                                <a href="./product-page (1)user.html" class="grey-text">
                                     <h5>$kind</h5>
                                 </a>
                                 <h5>
                                     <strong>
-                                        <a href="./product-page (1).php?id=$id" class="dark-grey-text">$name
+                                        <a href="./product-page (1)user.php?id=$id" class="dark-grey-text">$name
                                             <span class="badge badge-pill danger-color">NEW</span>
                                         </a>
                                     </strong>
