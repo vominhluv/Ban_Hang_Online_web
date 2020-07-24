@@ -1,3 +1,9 @@
+<?php
+ session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,92 +25,79 @@
 <body class="grey lighten-3">
 /*
  <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+ <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
   <div class="container">
 
-      <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="home-page.php" target="_blank">
-          <strong class="blue-text">77
+    <!-- Brand -->
+    <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+      <strong class="blue-text">77</strong>
+    </a>
+
+    <!-- Collapse -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="homepage.php">Trang chủ
             <span class="sr-only">(current)</span>
-          </strong>
-      </a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="./tro-giup.html" target="_blank">Trợ giúp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="./khuyen-mai.html"
+            target="_blank">Khuyến mãi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
+            
+          </a>
+        </li>
+      </ul>
 
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item active">
+          <a href="./don-hang.html" class="nav-link waves-effect">
+            <span class="badge red z-depth-1 mr-1"> <?php !empty($_SESSION['dem'])? $so=$_SESSION['dem']: $so=1;
+            echo $so; ?> </span>
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link waves-effect" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a href="./dang-nhap.html" class="nav-link border border-light rounded waves-effect"
+            target="_blank">
+            Đăng nhập
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./dang-ky.html" class="nav-link border border-light rounded waves-effect"
+            target="_blank">
+            Đăng ký
+          </a>
+        </li>
+      </ul>
 
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-          <!-- Left -->
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="home-page.php">Trang chủ
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp
-                    <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link waves-effect" href="./promotion.php"
-                     target="_blank">Khuyến mãi
-                     <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
-                    <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-          </ul>
-
-          <!-- Right -->
-          <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item active">
-                  <a href="./don-hang.php" class="nav-link waves-effect">
-                      
-                      <i class="fas fa-shopping-cart"></i>
-                      <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng 
-                        <span class="sr-only">(current)</span>
-                      </span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link waves-effect" target="_blank">
-                      <i class="fab fa-facebook-f"></i>
-                  </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li> -->
-             
-                      <li class="nav-item">
-                  <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
-                     target="_blank">
-                      Đăng nhập
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
-                     target="_blank">
-                      Đăng ký
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-
-                  
-
-              
-          </ul>
-
-      </div>
+    </div>
 
   </div>
 </nav>
@@ -198,66 +191,109 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
         <div class="col-md-4 mb-4">
 
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">SẢN PHẨM ĐÃ CHỌN</span>
             <span class="badge badge-secondary badge-pill">
+
+
             </span>
           </h4>
-          <?php               
-            include_once ('connet.php');
-            $sl=$_GET['txtnum'];
-            $id = $_COOKIE["id_sanpham"];
-            
-            $sql = "Select sp_tensanpham,sp_gia,sp_id,sp_theloai from tb_sp where sp_id=$id";
-            $resut = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($resut) > 0) { 
-              while ($row = mysqli_fetch_assoc($resut)) {
-               
-                $ten = $row['sp_tensanpham'];
-                $gia = $row['sp_gia'];
-                 $id=$row['sp_id'];   
-                 $tong =    $gia*$sl; 
-                 $theloai = $row['sp_theloai'];                                    
-                $sp=<<<EOD
-                
-                            <!-- Cart -->
-                            <ul class="list-group mb-3 z-depth-1">
-                              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                  <h6 class="my-0">$ten</h6>
-                                  <small class="text-muted">$theloai</small>
-                                </div>
-                                <span class="text-muted">$gia đ * $sl cái </span>
-                              </li>
-                                  
-                              <li class="list-group-item d-flex justify-content-between">
-                                <span>TỔNG CỘNG</span>
-                                <strong>$tong đ</strong>
-                              </li>
-                            </ul>
-                            <!-- Cart -->
 
-                            
+          <ul class="list-group mb-3 z-depth-1">
+              <?php
+              include_once('connet.php');
 
-                          </div>
-                          <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                      </div>
-EOD;
-   
+              if(isset($_GET['id'])) {
+                  $id=$_GET['id'];
+                  $_SESSION['cart'];
+                  $sql = "select sp_tensanpham, sp_gia from tb_sp where sp_id='$id'";
+                  $result = mysqli_query($conn, $sql);
+                  $data = mysqli_fetch_assoc($result);
+                  $name = $data['sp_tensanpham'];
+                  $prices = $data['sp_gia'];
+                  if (isset( $_SESSION['cart'])){
+                      if (array_key_exists($id, $_SESSION['cart'])) {
+                                        $array=[
+                              "sl" => (int) $_SESSION['cart'][$id]['sl'] + 1,
+                              "name" => $name,
+                              "prices" => $prices
+                          ];
+                      } else {
+                          $array=[
+                              "sl" => 1,
+                              "name" => $name,
+                              "prices" => $prices
+                          ];
+                      }
+                  } else {
+                      $array=[
+                          "sl" => 1,
+                          "name" => $name,
+                          "prices" => $prices
+                      ];
                   }
-                  echo $sp;
-                  
-            }
-          else echo "cmm";
+            $_SESSION['cart'][$id]=$array;
+            
+              }else{
+                 header('Location:homepage.php'); 
+              }
+//              echo '<pre>',
+//              print_r($_SESSION['cart']);'</pre>';
+//              if(isset($id)){
+//                  $_SESSION['cart']=array();
+//              }
+//              array_push($_SESSION['cart'], $id);
+
+            ?>
+              <?php
+                $tien=0;
+                $dem=1;
+              $cart= isset($_SESSION['cart'])?$_SESSION['cart']:[];
+              foreach ($cart as $value) :  ?>
+
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                      <h6 class="my-0"><?php echo $value['name']; ?></h6>
+                      <small class="text-muted">số lượng:<?php echo $value['sl']; ?></small>
+                  </div>
+                  <span class="text-muted"><?php $thanhtien=$value['sl']*$value['prices']; echo number_format($thanhtien);?> đ</span>
+              </li>
+                  <?php $tien+=$thanhtien;
+                  $dem+=$value['sl'];
+                   $_SESSION['dem']=$dem;
+                   ?>
+              <?php  endforeach;?>
+              <li class="list-group-item d-flex justify-content-between">
+                      <span>TỔNG CỘNG</span>
+                      <strong><?php echo number_format($tien); ?> đ</strong>
+              </li>
+            </ul>
+
+<?php
+// unset($_SESSION['cart']);
 ?>
+          <!-- Cart -->
+
+          <!-- Promo code -->
+          <form class="card p-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">ÁP DỤNG</button>
+              </div>
+            </div>
+          </form>
+          <!-- Promo code -->
+
+        </div>
+
+      </div>
+      <!--Grid row-->
+
+    </div>
   </main>
   <!--Main layout-->
 
