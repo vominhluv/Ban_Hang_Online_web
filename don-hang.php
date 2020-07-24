@@ -39,7 +39,7 @@
       <!-- Left -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link waves-effect" href="home-page.html">Trang chủ
+          <a class="nav-link waves-effect" href="homepage.php">Trang chủ
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -184,69 +184,65 @@
         </div>
         <!--Grid column-->
 
+        <!--Grid column-->
         <div class="col-md-4 mb-4">
 
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">SẢN PHẨM ĐÃ CHỌN</span>
             <span class="badge badge-secondary badge-pill">
-
-
             </span>
           </h4>
-
-          <ul class="list-group mb-3 z-depth-1">
-              <?php
-              $ten=$_GET['name'];
-              $sl=$_GET['txtnum'];
-              include_once ('connet.php');
-              $id=$_GET['id'];
-              $sql = "Select sp_tensanpham,sp_gia,from tb_sp where sp_id='$ten'";
-              $resut = mysqli_query($conn, $sql);
-              if (mysqli_num_rows($resut) > 0) {
+          <?php               
+            include_once ('connet.php');
+            $sl=$_GET['txtnum'];
+            $id = $_COOKIE["id_sanpham"];
+            
+            $sql = "Select sp_tensanpham,sp_gia,sp_id from tb_sp where sp_id=$id";
+            $resut = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($resut) > 0) { 
               while ($row = mysqli_fetch_assoc($resut)) {
-              $prices = $row['sp_dongia'];
-              $name = $row['sp_tensanpham'];
-              $id=$row['sp_id'];
-              $mota=$row['sp_mota'];
-              $hinhanh=$row['sp_hinhanh'];
-              $sp=<<<EOD
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Áo thun</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">200,000 đ</span>
-            </li>
-              
-            <li class="list-group-item d-flex justify-content-between">
-              <span>TỔNG CỘNG</span>
-              <strong>320,000</strong>
-            </li>
+               
+                $ten = $row['sp_tensanpham'];
+                $gia = $row['sp_gia'];
+                 $id=$row['sp_id'];   
+                 $tong =    $gia*$sl;                                     
+                $sp=<<<EOD
+                
+                            <!-- Cart -->
+                            <ul class="list-group mb-3 z-depth-1">
+                              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                  <h6 class="my-0">$ten</h6>
+                                  <small class="text-muted">Brief description</small>
+                                </div>
+                                <span class="text-muted">$gia đ * $sl cái </span>
+                              </li>
+                                  
+                              <li class="list-group-item d-flex justify-content-between">
+                                <span>TỔNG CỘNG</span>
+                                <strong>$tong đ</strong>
+                              </li>
+                            </ul>
+                            <!-- Cart -->
+
+                            
+
+                          </div>
+                          <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                      </div>
 EOD;
-
-              ?>
-
-
-          <!-- Cart -->
-
-          <!-- Promo code -->
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">ÁP DỤNG</button>
-              </div>
-            </div>
-          </form>
-          <!-- Promo code -->
-
-        </div>
-
-      </div>
-      <!--Grid row-->
-
-    </div>
+   
+                  }
+                  echo $sp;
+                  
+            }
+          else echo "cmm";
+?>
   </main>
   <!--Main layout-->
 
