@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 17, 2020 lúc 10:25 AM
+-- Thời gian đã tạo: Th7 24, 2020 lúc 05:54 AM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.4.7
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `qlao`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_admin`
+--
+
+CREATE TABLE `tbl_admin` (
+  `adminid` int(11) NOT NULL,
+  `adminName` varchar(255) NOT NULL,
+  `adminEmail` varchar(255) NOT NULL,
+  `adminUser` varchar(255) NOT NULL,
+  `adminPass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`adminid`, `adminName`, `adminEmail`, `adminUser`, `adminPass`) VALUES
+(1, 'hoàng huy', 'huy@gmail.com', 'huy', 'huy'),
+(2, 'hoàng huy', 'huy@gmail.com', 'huy', 'huy'),
+(3, 'trần thìn 11', 'thin11@gmail.com', 'thin11', 'thin11'),
+(4, 'Tâm Trương', 'truongthanhtam@gmail.com', 'winnerart', '12345'),
+(5, 'lũy võ', 'luy@gmail.com', 'luy', 'luy'),
+(6, 'lũy võ', 'luy1@gmail.com', 'luy1', 'luy');
 
 -- --------------------------------------------------------
 
@@ -167,6 +193,12 @@ INSERT INTO `tb_sp` (`sp_id`, `sp_hinhanh`, `sp_theloai`, `sp_tensanpham`, `sp_g
 --
 
 --
+-- Chỉ mục cho bảng `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`adminid`);
+
+--
 -- Chỉ mục cho bảng `tb_chitiet`
 --
 ALTER TABLE `tb_chitiet`
@@ -177,6 +209,16 @@ ALTER TABLE `tb_chitiet`
 --
 ALTER TABLE `tb_sp`
   ADD PRIMARY KEY (`sp_id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  MODIFY `adminid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
