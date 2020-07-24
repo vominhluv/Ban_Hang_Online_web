@@ -111,18 +111,45 @@
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li> -->
-                <li class="nav-item">
-                    <a href="./dang-nhap.html" class="nav-link border border-light rounded waves-effect"
+                <?php
+                    $tendangnhap = $_COOKIE['id_tentaikhoan'];
+                    // echo $tendangnhap;
+                    if(isset($tendangnhap)){
+                        echo $tendangnhap;
+                        $li =<<<EOD
+                        <li class="nav-item">
+                    <a href="home-page.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng xuất
+                        </a>
+EOD;
+                    
+                    echo $li;
+                    }
+                    
+                    else{
+                        $li =<<<EOD
+                        <li class="nav-item">
+                    <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
                        target="_blank">
                         Đăng nhập
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./dang-ky.html" class="nav-link border border-light rounded waves-effect"
+                    <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
                        target="_blank">
                         Đăng ký
                     </a>
                 </li>
+
+                    
+EOD;
+                    
+                    echo $li;
+                    }
+
+?>
+                
             </ul>
 
         </div>
