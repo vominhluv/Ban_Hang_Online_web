@@ -4,7 +4,7 @@ session_start();
 include_once('connet.php');
 $user=$_GET['txtuser'];
 $pass=$_GET['txtpass'];
-echo $user,$pass;
+
 $sql="SELECT *  FROM tbl_admin  where adminUser='".$user."' and adminPass='".$pass."'";
 $result = mysqli_query($conn, $sql);
 

@@ -198,7 +198,7 @@
             $sl=$_GET['txtnum'];
             $id = $_COOKIE["id_sanpham"];
             
-            $sql = "Select sp_tensanpham,sp_gia,sp_id from tb_sp where sp_id=$id";
+            $sql = "Select sp_tensanpham,sp_gia,sp_id,sp_theloai from tb_sp where sp_id=$id";
             $resut = mysqli_query($conn, $sql);
             if (mysqli_num_rows($resut) > 0) { 
               while ($row = mysqli_fetch_assoc($resut)) {
@@ -206,7 +206,8 @@
                 $ten = $row['sp_tensanpham'];
                 $gia = $row['sp_gia'];
                  $id=$row['sp_id'];   
-                 $tong =    $gia*$sl;                                     
+                 $tong =    $gia*$sl; 
+                 $theloai = $row['sp_theloai'];                                    
                 $sp=<<<EOD
                 
                             <!-- Cart -->
@@ -214,7 +215,7 @@
                               <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                   <h6 class="my-0">$ten</h6>
-                                  <small class="text-muted">Brief description</small>
+                                  <small class="text-muted">$theloai</small>
                                 </div>
                                 <span class="text-muted">$gia đ * $sl cái </span>
                               </li>

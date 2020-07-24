@@ -295,7 +295,7 @@ $id=$_SESSION['name'];
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.php"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                                     class="hide-menu">Ticket List
                                 </span></a>
