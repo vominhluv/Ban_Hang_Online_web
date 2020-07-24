@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 24, 2020 lúc 05:54 AM
+-- Thời gian đã tạo: Th7 24, 2020 lúc 01:21 PM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.4.7
 
@@ -46,6 +46,30 @@ INSERT INTO `tbl_admin` (`adminid`, `adminName`, `adminEmail`, `adminUser`, `adm
 (4, 'Tâm Trương', 'truongthanhtam@gmail.com', 'winnerart', '12345'),
 (5, 'lũy võ', 'luy@gmail.com', 'luy', 'luy'),
 (6, 'lũy võ', 'luy1@gmail.com', 'luy1', 'luy');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `taikhoan` varchar(11) NOT NULL,
+  `matkhau` varchar(300) NOT NULL,
+  `ho` varchar(300) NOT NULL,
+  `ten` varchar(255) NOT NULL,
+  `sdt` varchar(1000) NOT NULL,
+  `email` varchar(1000) NOT NULL,
+  `diachi` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`taikhoan`, `matkhau`, `ho`, `ten`, `sdt`, `email`, `diachi`) VALUES
+('thin', 'thin', 'thin', 'thin', 'thin', 'thin', 'thin'),
+('thin1', 'thin1', 'thin1', 'thin1', 'thin1', 'thin1', 'thin1');
 
 -- --------------------------------------------------------
 
@@ -197,6 +221,12 @@ INSERT INTO `tb_sp` (`sp_id`, `sp_hinhanh`, `sp_theloai`, `sp_tensanpham`, `sp_g
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`adminid`);
+
+--
+-- Chỉ mục cho bảng `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`taikhoan`);
 
 --
 -- Chỉ mục cho bảng `tb_chitiet`
