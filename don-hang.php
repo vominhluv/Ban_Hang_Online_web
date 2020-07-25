@@ -29,7 +29,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+        <a class="navbar-brand waves-effect" href="index.php" target="_blank">
             <strong class="blue-text">77</strong>
         </a>
 
@@ -44,8 +44,8 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect" href="index.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -65,7 +65,7 @@
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="./don-hang.php" class="nav-link waves-effect">
                         
                         <i class="fas fa-shopping-cart"></i>
@@ -198,14 +198,11 @@ EOD;
 
 
               <div class="d-block my-2">
-                <div class="custom-control custom-radio">
-                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="credit">Ví ViettelPay</label>
+                <div class="custom-control >
+                  
+                  <label class="custom-control-label" for="credit">Thanh Toán Khi Nhận Hàng</label>
                 </div>
-                <div class="custom-control custom-radio">
-                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="debit">Ví MoMo</label>
-                </div>
+                
                
               </div>
               <hr class="mb-4">
@@ -266,7 +263,7 @@ EOD;
             $_SESSION['cart'][$id]=$array;
             
               }else{
-                 header('Location:homepage.php'); 
+                 header('Location:index.php'); 
               }
 //              echo '<pre>',
 //              print_r($_SESSION['cart']);'</pre>';
@@ -305,15 +302,7 @@ EOD;
 ?>
           <!-- Cart -->
 
-          <!-- Promo code -->
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">ÁP DỤNG</button>
-              </div>
-            </div>
-          </form>
+          <!-- Promo co
           <!-- Promo code -->
 
         </div>

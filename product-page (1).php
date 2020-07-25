@@ -28,7 +28,7 @@ session_start ();
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+        <a class="navbar-brand waves-effect" href="index.php" target="_blank">
             <strong class="blue-text">77</strong>
         </a>
 
@@ -44,7 +44,7 @@ session_start ();
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                    <a class="nav-link waves-effect" href="index.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -133,7 +133,7 @@ EOD;
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+        <a class="navbar-brand waves-effect" href="index.php" target="_blank">
             <strong class="blue-text">77</strong>
         </a>
 
@@ -149,7 +149,7 @@ EOD;
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                    <a class="nav-link waves-effect" href="index.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>

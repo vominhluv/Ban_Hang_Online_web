@@ -62,7 +62,7 @@ session_start();
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+        <a class="navbar-brand waves-effect" href="index.php" target="_blank">
             <strong class="blue-text">77</strong>
         </a>
 
@@ -78,7 +78,7 @@ session_start();
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                    <a class="nav-link waves-effect" href="index.php">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -321,7 +321,7 @@ EOD;
                
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.php">Tất cả
+                        <a class="nav-link" href="index.php">Tất cả
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -456,7 +456,7 @@ EOD;
             <?php
             // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
             if ($current_page > 1 && $total_page > 1){
-                echo '<a href="homepage.php?page='.($current_page-1).'">Prev</a> | ';
+                echo '<a href="index.php?page='.($current_page-1).'">Prev</a> | ';
             }
 
             // Lặp khoảng giữa
@@ -467,13 +467,13 @@ EOD;
                     echo '<span>'.$i.'</span> | ';
                 }
                 else{
-                    echo '<a href="homepage.php?page='.$i.'">'.$i.'</a> | ';
+                    echo '<a href="index.php?page='.$i.'">'.$i.'</a> | ';
                 }
             }
 
             // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
             if ($current_page < $total_page && $total_page > 1){
-                echo '<a href="homepage.php?page='.($current_page+1).'">Next</a> | ';
+                echo '<a href="index.php?page='.($current_page+1).'">Next</a> | ';
             }
             ?>
         </nav>

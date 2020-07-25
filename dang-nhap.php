@@ -46,7 +46,7 @@ $_SESSION["name1"]="";
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="homepage.php"
+                  <a class="nav-link waves-effect" href="index.php"
                   >Trang chủ
                       <span class="sr-only">(current)</span>
                   </a>

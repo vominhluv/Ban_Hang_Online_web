@@ -9,7 +9,7 @@ $sql="SELECT taikhoan,matkhau  FROM tbl_user  where taikhoan='".$user."' and mat
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-  
+  $_SESSION['cart'] = array ();
     // Hàm `mysql_fetch_row()` s? ch? fetch d? li?u m?t record m?i l?n du?c g?i
     // do dó c?n s? d?ng vòng l?p While d? l?p qua toàn b? d? li?u trên b?ng posts
     while ($row=mysqli_fetch_row($result)) {
@@ -21,7 +21,7 @@ if ($result) {
       {
        
         
-        header('Location:homepage.php');
+        header('Location:index.php');
       }
       else 
       header('Location:dang-nhap.php');
