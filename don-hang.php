@@ -25,81 +25,109 @@
 <body class="grey lighten-3">
 /*
  <!-- Navbar -->
- <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-  <div class="container">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
 
-    <!-- Brand -->
-    <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
-      <strong class="blue-text">77</strong>
-    </a>
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="homepage.php" target="_blank">
+            <strong class="blue-text">77</strong>
+        </a>
 
-    <!-- Collapse -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <!-- Left -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="homepage.php">Trang chủ
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="./tro-giup.html" target="_blank">Trợ giúp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="./khuyen-mai.html"
-            target="_blank">Khuyến mãi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
-            
-          </a>
-        </li>
-      </ul>
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect" href="homepage.php">Trang chủ
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect"  href="./tro-giup.php" target="_blank">Trợ giúp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="./promotion.php"
+                       target="_blank">Khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.php" target="_blank">Chính sách bán hàng
 
-      <!-- Right -->
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item active">
-          <a href="./don-hang.html" class="nav-link waves-effect">
-            <span class="badge red z-depth-1 mr-1"> <?php !empty($_SESSION['dem'])? $so=$_SESSION['dem']: $so=1;
-            echo $so; ?> </span>
-            <i class="fas fa-shopping-cart"></i>
-            <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <!-- <li class="nav-item">
-          <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a href="./dang-nhap.html" class="nav-link border border-light rounded waves-effect"
-            target="_blank">
-            Đăng nhập
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="./dang-ky.html" class="nav-link border border-light rounded waves-effect"
-            target="_blank">
-            Đăng ký
-          </a>
-        </li>
-      </ul>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a href="./don-hang.php" class="nav-link waves-effect">
+                        
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link waves-effect" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li> -->
+                <?php
+                                   
+                    $name2 = $_SESSION["name1"];
+                    // echo $tendangnhap;
+                    if(($name2)!="" ){
+                        echo $name2;
+                        $li =<<<EOD
+                        <li class="nav-item">
+                    <a href="dang-nhap.php" class="nav-link border border-light rounded waves-effect"
+                       >
+                        Đăng xuất
+                        </a>
+EOD;
+                    
+                    echo $li;
+                    }
+                    
+                    else{
+                    
+                        $li1 =<<<EOD
+                        <li class="nav-item">
+                    <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng nhập
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./dang-ky.php" class="nav-link border border-light rounded waves-effect"
+                       target="_blank">
+                        Đăng ký
+                    </a>
+                </li>
+
+                    
+EOD;
+                    
+                    echo $li1;
+                    }
+
+?>
+                
+            </ul>
+
+        </div>
 
     </div>
-
-  </div>
 </nav>
 <!-- Navbar -->
   <!--Main layout-->

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +22,7 @@
 
 <body>
 
-  <!-- Navbar -->
+   <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
 
@@ -45,14 +48,14 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="tro-giupuser.php" target="_blank">Trợ giúp</a>
+                    <a class="nav-link waves-effect"  href="./tro-giup.php" target="_blank">Trợ giúp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="./promotionuser.php"
+                    <a class="nav-link waves-effect" href="./promotion.php"
                        target="_blank">Khuyến mãi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hanguser.php" target="_blank">Chính sách bán hàng
+                    <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.php" target="_blank">Chính sách bán hàng
 
                     </a>
                 </li>
@@ -61,7 +64,7 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a href="./don-hanguser.php" class="nav-link waves-effect">
+                    <a href="./don-hang.php" class="nav-link waves-effect">
                         
                         <i class="fas fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Giỏ hàng </span>
@@ -78,14 +81,15 @@
                   </a>
                 </li> -->
                 <?php
-                    $tendangnhap1 = $_COOKIE['id_tentaikhoan'];
+                                   
+                    $name2 = $_SESSION["name1"];
                     // echo $tendangnhap;
-                    if(isset($tendangnhap1)){
-                        echo $tendangnhap1;
+                    if(($name2)!="" ){
+                        echo $name2;
                         $li =<<<EOD
                         <li class="nav-item">
-                    <a href="home-page.php" class="nav-link border border-light rounded waves-effect"
-                       target="_blank">
+                    <a href="dang-nhap.php" class="nav-link border border-light rounded waves-effect"
+                       >
                         Đăng xuất
                         </a>
 EOD;
@@ -94,7 +98,8 @@ EOD;
                     }
                     
                     else{
-                        $li =<<<EOD
+                    
+                        $li1 =<<<EOD
                         <li class="nav-item">
                     <a href="./dang-nhap.php" class="nav-link border border-light rounded waves-effect"
                        target="_blank">
@@ -111,7 +116,7 @@ EOD;
                     
 EOD;
                     
-                    echo $li;
+                    echo $li1;
                     }
 
 ?>

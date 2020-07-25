@@ -14,6 +14,7 @@ if ($result) {
     // do dó c?n s? d?ng vòng l?p While d? l?p qua toàn b? d? li?u trên b?ng posts
     while ($row=mysqli_fetch_row($result)) {
       $name=$row[0];
+      $_SESSION["name1"]= $name;
       $matkhau=$row[1];
       setcookie("id_tentaikhoan", $name, time()+36000000,"/","", 0);
       if (($name == $user) && ($matkhau== $pass))

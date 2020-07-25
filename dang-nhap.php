@@ -1,3 +1,7 @@
+<?php
+session_start ();
+$_SESSION["name1"]="";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,12 +46,13 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="home-page.php">Trang chủ
+                  <a class="nav-link waves-effect" href="homepage.php"
+                  >Trang chủ
                       <span class="sr-only">(current)</span>
                   </a>
               </li>
               <li class="nav-item ">
-                  <a class="nav-link waves-effect" href="tro-giup.html" target="_blank">Trợ giúp
+                  <a class="nav-link waves-effect" href="tro-giup.php" >Trợ giúp
                     <span class="sr-only">(current)</span>
                   </a>
               </li>
@@ -57,7 +62,7 @@
                      <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.html" target="_blank">Chính sách bán hàng
+                  <a class="nav-link waves-effect" href="./chinh-sach-ban-hang.php" >Chính sách bán hàng
                     <span class="sr-only">(current)</span>
                   </a>
               </li>
