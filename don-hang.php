@@ -206,7 +206,7 @@ EOD;
                
               </div>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">ĐẶT HÀNG </button>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" onclick='alert("Đã đặt hàng, vui lòng chờ nhân viên,gọi xát nhận ")' >ĐẶT HÀNG </button>
 
             </form>
 

@@ -289,7 +289,7 @@ $id=$_SESSION['name'];
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.php"
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="list-divider"></li>
@@ -349,13 +349,13 @@ $id=$_SESSION['name'];
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.php"
                                 aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
                                     class="hide-menu">Login
                                 </span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
+                                href="Signup.php" aria-expanded="false"><i data-feather="lock"
                                     class="feather-icon"></i><span class="hide-menu">Register
                                 </span></a>
                         </li>
@@ -414,7 +414,7 @@ $id=$_SESSION['name'];
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a>
+                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a>
                                     </li>
                                 </ol>
                             </nav>

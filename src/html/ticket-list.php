@@ -289,21 +289,25 @@ $id=$_SESSION['name'];
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.php"
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.php"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                                    class="hide-menu">Product List
+                                    class="hide-menu">Ticket List
                                 </span></a>
                         </li>
                         
                         
 
                         <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="form-inputs.html" class="sidebar-link"><span
                                             class="hide-menu"> Form Inputs
@@ -345,13 +349,13 @@ $id=$_SESSION['name'];
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.php"
                                 aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
                                     class="hide-menu">Login
                                 </span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
+                                href="Signup.php" aria-expanded="false"><i data-feather="lock"
                                     class="feather-icon"></i><span class="hide-menu">Register
                                 </span></a>
                         </li>
@@ -363,9 +367,13 @@ $id=$_SESSION['name'];
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                   
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                        <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="logout.php"
                                 aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">Logout</span></a></li>
+                                    class="hide-menu">Logout</span>
+                                    
+                                    </a>
+                                    </li>
+                                    
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
